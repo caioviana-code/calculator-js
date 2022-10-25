@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Poppins&display=swap');
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #f7c1bb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #353A47;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.painel {
+    width: 215px;
+    height: 45px;
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.btn {
+    padding: 5px;
+    margin: 4px;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 46px;
+    background-color: #eccbc8;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.operator {
+    background-color: #885a5a;
+    color: white;
+}
+
+.row {
+    display: flex;
+}
+
+#btn-grow {
+    flex-grow: 1;
+}
