@@ -1,76 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 *,
 *::after,
 *::before {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-} 
-
-body, html {
-    height: 100%;
-    width: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     background-color: #f7c1bb;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-family: "Poppins", sans-serif;
+    justify-content: center;
+    padding: 3em;
 }
 
 .calculator-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border-radius: .5em;
+    width: 400px;
     background-color: #353A47;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.painel {
+    color: black;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width: 215px;
-    height: 45px;
+    padding: .5em;
+}
+
+.painel-container {
+    text-align: right;
     background-color: white;
-    margin-bottom: 5px;
-    border-radius: 5px;
+    border-radius: .5em;
+    margin: .7em 0;
 }
 
-.previus-visor {
+.previous-visor {
+    padding: .2em;
+    overflow-wrap: break-word;
+    min-height: 1.6em;
     color: #606164;
-    font-size: 12px;
 }
 
-.btn {
-    padding: 5px;
-    margin: 4px;
+.current-visor {
+    min-height: 1.6em;
+    font-size: 1.8em;
+    font-weight: bold;
+    padding: .2em;
+    overflow-wrap: break-word;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: .3em;
+}
+
+.buttons-container button {
     border: none;
-    border-radius: 5px;
-    height: 40px;
-    width: 46px;
+    border-radius: .5em;
+    height: 4em;
+    font-size: 1.2em;
     background-color: #eccbc8;
+    cursor: pointer;
 }
 
-.btn:hover {
-    background-color: black;
-    color: white;
+.buttons-container .span-two {
+    grid-column: span 2;
 }
 
-.operator {
+.buttons-container .operator {
     background-color: #885a5a;
     color: white;
 }
 
-.row {
-    display: flex;
-}
-
-#btn-grow {
-    flex-grow: 1;
+.buttons-container > button:hover {
+    background-color: black;
+    color: white;
+    border: 0.1px solid white;
 }
