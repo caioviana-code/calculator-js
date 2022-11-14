@@ -11,11 +11,22 @@ class Calculator {
     constructor(previousOperandText, currentOperandText) {
         this.previousOperandText = previousOperandText;
         this.currentOperandText = currentOperandText;
+        this.clear()
+    }
+
+    appendNumber(number) {
+        if (this.currentOperand.includes(".") && number === ".") return;
+
+        this.currentOperand = `${this.currentOperand}${number.toString()}`;
     }
 
     clear() {
         this.currentOperand = '';
         this.previousOperand = '';
+    }
+
+    delete() {
+        this.currentOperand = this.currentOperand.toString().slice(0, -1);
     }
 
     updateDisplay() {
@@ -26,7 +37,29 @@ class Calculator {
 
 const calculator = new Calculator(previousOperandText, currentOperandText);
 
+numberButtons.forEach((number) => {
+    number.addEventListener('click', () => {
+        calculator.appendNumber(number.innerText);
+        calculator.updateDisplay();
+    })
+})
+
+operationButtons.forEach((operation) => {
+    operation.addEventListener('click', () => {
+        console.log(operation);
+    })
+})
+
 clearButton.addEventListener('click', () => {
     calculator.clear();
+    calculator.updateDisplay();
+})
+
+equalsButton.addEventListener('click', () => {
+    console.log(equalsButton);
+})
+
+deleteButton.addEventListener('click', () => {
+    calculator.delete();
     calculator.updateDisplay();
 })
