@@ -1,1 +1,1 @@
-# Calculator made with HYML, CSS and Javascript
+# Calculator made with HTML, CSS and Javascript
