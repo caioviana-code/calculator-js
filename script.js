@@ -14,8 +14,48 @@ class Calculator {
         this.clear()
     }
 
+    equals() {
+        if (this.currentOperand === '' || this.previousOperand === '') return;
+
+        this.calculate();
+        this.currentOperand = this.result;
+        this.previousOperand = '';
+        this.operator = undefined;
+    }
+
+    calculate() {
+
+        switch (this.operator) {
+            case '÷':
+                this.result = parseFloat(this.previousOperand) / parseFloat(this.currentOperand);
+                break;
+            case 'x':
+                this.result = parseFloat(this.previousOperand) * parseFloat(this.currentOperand);
+                break;
+            case '+':
+                this.result = parseFloat(this.previousOperand) + parseFloat(this.currentOperand);
+                break;
+            case '-':
+                this.result = parseFloat(this.previousOperand) - parseFloat(this.currentOperand);
+                break;
+            default:
+                return;
+        }
+
+        this.previousOperand = this.result;
+        this.currentOperand = '';
+    }
+
     chooseOperator(operator) {
+        if (this.currentOperand === '' && this.previousOperand === '') return;
+
         if (this.currentOperand === '') {
+            this.operator = operator;
+            return;
+        }
+
+        if (this.currentOperand !== '' && this.previousOperand !== '') {
+            this.calculate();
             this.operator = operator;
             return;
         }
@@ -69,7 +109,8 @@ clearButton.addEventListener('click', () => {
 })
 
 equalsButton.addEventListener('click', () => {
-    console.log(equalsButton);
+    calculator.equals();
+    calculator.updateDisplay();
 })
 
 deleteButton.addEventListener('click', () => {
